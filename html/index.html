@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="../js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//什么是ajax:  异步的js与xml   
+//在IE6下不支持XMLHttpRequest,会报错   解决办法：将XMLHttpRequest挂在window下就不会报错了，但是会是个undefind
+//IE下用  ActiveXObject('Microsoft.XMLHTTP')   
+//		
+//			if(window.XMLHttpRequest){
+//				var ajax = new XMLHttpRequest()
+//			}else{
+//				var ajax = new ActiveXObject('Microsoft.XMLHTTP')
+//			}
+//			ajax.open('get','php/get.php?user='+encodeURI('大神'),true);
+//			ajax.send();
+//			ajax.onreadystatechange = function(){
+//				if(ajax.readyState == 4 && ajax.status == 200){
+//					console.log(ajax.responseText)
+//				}
+//			}
+
+//decodeURI和encodeURI的用法
+//			console.log(decodeURI('%E5%A4%A7%E7%A5%9E'))//decodeURI将URI编码格式转成中文
+//			console.log(encodeURI('大神'));//encodeURI将中文转成URI编码格式
+			
+			$ajax({
+				url:'php/get_json.php',//地址
+				type:'get',//请求方式
+				data:'user=leo',//字段拼接
+				sucesess:function(data){//成功之后的回调函数
+//					console.log(eval('('+data+')'));//相当于病毒之类的面试的时候不要说但是很好用
+					console.log((new Function('','return' + data))())//把字符串解析成对象
+				},
+				error:function(a){//失败之后的回调函数
+					console.log(a)
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>
