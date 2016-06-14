@@ -10,18 +10,18 @@
 //在IE6下不支持XMLHttpRequest,会报错   解决办法：将XMLHttpRequest挂在window下就不会报错了，但是会是个undefind
 //IE下用  ActiveXObject('Microsoft.XMLHTTP')   
 		
-		if(window.XMLHttpRequest){
-			var ajax = new.XMLHttpRequest()
-		}else{
-			var ajax = new ActiveXObject('Microsoft.XMLHTTP')
-		}
-		ajax.open('get','php/get.php?user='+encodeURI('大神'),ture);
-		ajax.send();
-		ajax.onreadystatechange = function(){
-			if(ajax.readyState == 4 && ajax.status == 200){
-				console.log(ajax.responseText)
+			if(window.XMLHttpRequest){
+				var ajax = new XMLHttpRequest()
+			}else{
+				var ajax = new ActiveXObject('Microsoft.XMLHTTP')
 			}
-		}
+			ajax.open('get','php/get.php?user='+encodeURI('大神'),ture);
+			ajax.send();
+			ajax.onreadystatechange = function(){
+				if(ajax.readyState == 4 && ajax.status == 200){
+					console.log(ajax.responseText)
+				}
+			}
 		</script>
 	</body>
 </html>
