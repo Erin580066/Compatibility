@@ -5,6 +5,7 @@
 		<title></title>
 	</head>
 	<body>
+		<script src="../js/Jrhs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 //什么是ajax:  异步的js与xml   
@@ -28,20 +29,21 @@
 //			console.log(decodeURI('%E5%A4%A7%E7%A5%9E'))//decodeURI将URI编码格式转成中文
 //			console.log(encodeURI('大神'));//encodeURI将中文转成URI编码格式
 			
-			$ajax({
-				url:'php/get_json.php',//地址
-				type:'get',//请求方式
-				data:'user=leo',//字段拼接
-				sucesess:function(data){//成功之后的回调函数
-//					console.log(eval('('+data+')'));//相当于病毒之类的面试的时候不要说但是很好用
-					console.log((new Function('','return' + data))())//把字符串解析成对象
-				},
-				error:function(a){//失败之后的回调函数
-					console.log(a)
-				}
-			})
+//			$ajax({
+//				url:'php/get_json.php',//地址
+//				type:'get',//请求方式
+//				data:'user=leo',//字段拼接
+//				sucesess:function(data){//成功之后的回调函数
+////					console.log(eval('('+data+')'));//相当于病毒之类的面试的时候不要说但是很好用
+//					console.log((new Function('','return' + data))())//把字符串解析成对象
+//				},
+//				error:function(a){//失败之后的回调函数
+//					console.log(a)
+//				}
+//			})
 			
-			
+//用户的鼠标向上或者向下事件	的兼容
+
 		</script>
 	</body>
 </html>
